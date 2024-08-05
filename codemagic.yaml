@@ -2,6 +2,7 @@ workflows:
   ios-automatic-code-signing:
     name: iOS automatic code signing
     instance_type: mac_mini_m1
+    max_build_duration: 120
     working_directory: ios/ios-automatic-code-signing-demo-project
     environment:
       groups:
@@ -48,7 +49,7 @@ workflows:
           #npm i -g yarn
           sudo chown -R `whoami` ~/.npm
           sudo chown -R `whoami` /usr/local/lib/node_modules
-          yarn install  && sleep 30s; kill $!
+          yarn install  && sleep 20s; kill $!
           npx puppeteer browsers install chrome
           #npm install
           #chmod +x ./install.sh
